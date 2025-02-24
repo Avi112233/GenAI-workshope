@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avengers Facts</title>
+    <style>
+        body {
+            background-color: #ffcccc; /* Light red background */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            border: 2px solid #ff0000; /* Darker red border */
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #ff0000; /* Red button */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #cc0000; /* Darker red on hover */
+        }
+
+        .fact {
+            font-size: 1.2em;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Avengers Fact</h1>
+        <button id="factButton">Get a Random Fact</button>
+        <p id="factDisplay" class="fact"></p>
+    </div>
+    <script>
+        const avengersFacts = [
+            "The Avengers first appeared in 'The Avengers' #1 comic book published in September 1963.",
+            "The original lineup included Iron Man, Thor, Hulk, Ant-Man, and Wasp.",
+            "The character of Hawkeye was introduced in 'Tales of Suspense' #57 before joining the Avengers.",
+            "The Avengers have had numerous members over the years, including Spider-Man, Black Panther, and Captain Marvel.",
+            "The Marvel Cinematic Universe (MCU) began with 'Iron Man' in 2008, leading to the formation of the Avengers in 'The Avengers' (2012).",
+            "The phrase 'Avengers Assemble!' is a rallying cry used by the team in both comics and films.",
+            "The character of Nick Fury, who leads the Avengers, was originally a World War II soldier in the comics.",
+            "The Avengers have faced many villains, including Loki, Ultron, and Thanos.",
+            "The team has been adapted into various animated series, video games, and films beyond the MCU.",
+            "The Avengers are often referred to as Earth's Mightiest Heroes."
+        ];
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * avengersFacts.length);
+            const fact = avengersFacts[randomIndex];
+            const factDisplay = document.getElementById('factDisplay');
+            
+            factDisplay.innerHTML = `<strong>${fact}</strong>`;
+            factDisplay.style.opacity = 0; // Reset opacity for animation
+            setTimeout(() => {
+                factDisplay.style.opacity = 1; // Fade in effect
+            }, 10);
+        });
+    </script>
+</body>
+</html>
